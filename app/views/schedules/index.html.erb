@@ -1,0 +1,47 @@
+<div class="table-container">
+  <div class="table-header">
+    <div class="date-info-container">
+      <div class="date-info">
+        <p>Today: <%= Time.current.strftime('%Y/%m/%d') %></p>
+      </div>
+
+      <div class="count-schedule">
+        <p>All schedules: <%= @schedules_count %></p>
+      </div>
+    </div>
+
+    <p><%= link_to "New Schedule", :new_schedule, class: "to-new-schedule" %></p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>All Day</th>
+        <th>Last Updated</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.title %></td>
+        <td><%= schedule.start_at.strftime("%Y-%m-%d") %></td>
+        <td><%= schedule.end_at.strftime("%Y-%m-%d") %></td>
+        <td><%= schedule.all_day ? '○' : '' %></td>
+        <td><%= schedule.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <td>
+          <%= link_to '詳細', schedule_path(schedule.id) %>
+          <%= link_to '編集', [:edit, schedule] %>
+          <%= link_to '削除', schedule_path(schedule.id),
+          method: :delete,
+          data: { confirm: "本当に削除してもよろしいですか？" } %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

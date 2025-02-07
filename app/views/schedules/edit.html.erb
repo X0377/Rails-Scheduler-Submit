@@ -1,0 +1,56 @@
+<div class="form-container">
+
+  <%= form_with model: @schedule do |f| %>
+  <% if @schedule.errors.any? %>
+  <div class="error-messages">
+    <h2><%= pluralize(@schedule.errors.count, "error") %> </h2>
+    <ul>
+      <% @schedule.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title do %>
+    タイトル<span class="required">*</span>
+    <% end %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_at do %>
+    開始日<span class="required">*</span>
+    <% end %>
+    <%= f.date_field :start_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_at do %>
+    終了日<span class="required">*</span>
+    <% end %>
+    <%= f.date_field :end_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :all_day do %>
+    終日
+    <%= f.check_box :all_day %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :memo do %>
+    メモ<span class="supplement">（最大500文字）</span>
+    <% end %>
+    <%= f.text_area :memo %>
+  </div>
+
+  <div class="actions">
+    <%= link_to "キャンセル", schedules_path %>
+    <%= f.submit "更新" %>
+  </div>
+  <% end %>
+
+</div>

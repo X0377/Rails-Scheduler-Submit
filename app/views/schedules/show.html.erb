@@ -1,0 +1,46 @@
+<div class="form-container">
+  <div class="show-container">
+
+    <div class="field-title">
+      <div class="form-value">
+        <%= @schedule.title %>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>開始日</label>
+      <div class="form-value">
+        <%= @schedule.start_at.strftime("%Y/%m/%d") %>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>終了日</label>
+      <div class="form-value">
+        <%= @schedule.end_at.strftime("%Y/%m/%d") %>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>終日</label>
+      <div class="form-value">
+        <%= @schedule.all_day ? "○" : "" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>メモ</label>
+      <div class="form-value">
+        <%= @schedule.memo.presence || "（なし）" %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= link_to "スケジュール一覧", schedules_path, class: "btn" %>
+      <%= link_to "編集", edit_schedule_path(@schedule), class: "edit-link" %>
+      <%= link_to "削除", schedule_path(@schedule), class: "delete-link",
+    method: :delete,
+    data: { confirm: "本当に削除してもよろしいですか？" } %>
+    </div>
+  </div>
+</div>

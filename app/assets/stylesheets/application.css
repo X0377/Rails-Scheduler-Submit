@@ -13,3 +13,78 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  margin: 0;
+  background-color: #b7d5d2;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #464134;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.header-container {
+  display: flex;
+  background-color: rgb(255, 252, 249);
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+  height: 50px;
+}
+
+.error-messages {
+  padding:10px 10px 30px 10px;
+  color: #d96c69;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.flash-messages {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  min-width: 250px;
+}
+
+.flash-message {
+  padding: 15px 25px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  animation: slide-in 0.5s ease-out;
+}
+
+.notice {
+  background-color: #2d904d;
+  color: white;
+}
+
+.alert {
+  background-color: #d96c69;
+  color: white;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
